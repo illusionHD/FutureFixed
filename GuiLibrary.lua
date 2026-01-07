@@ -131,7 +131,7 @@ local function requesturl(url, bypass)
     if betterisfile(url) then 
         return readfile(url)
     end
-    local repourl = bypass and "https://raw.githubusercontent.com/NTDCore/" or "https://raw.githubusercontent.com/NTDCore/FutureDev/main/"
+    local repourl = bypass and "https://raw.githubusercontent.com/illusionHD/" or "https://raw.githubusercontent.com/illusionHD/futurefixed/main/"
 
     local req = requestfunc({
         Url = repourl..url,
@@ -144,7 +144,7 @@ end
 local function getasset(path)
 	--[[if not betterisfile(path) then
 		local req = requestfunc({
-			Url = "https://raw.githubusercontent.com/NTDCore/FutureDev/main/"..path:gsub("Future/assets", "assets"),
+			Url = "https://raw.githubusercontent.com/illusionHD/futurefixed/main/"..path:gsub("Future/assets", "assets"),
 			Method = "GET"
 		})
         print("[Future] downloading "..path.." asset.")
@@ -2063,5 +2063,6 @@ onDestroySignal:Connect(function()
     shared.Future = nil
     log("Destruct", "---- END LOG ----")
 end)
+
 
 return GuiLibrary
