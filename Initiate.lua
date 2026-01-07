@@ -137,53 +137,7 @@ local getcustomasset = --[[getsynasset or getcustomasset or]] GuiLibrary["getRob
 GuiLibrary["LoadOnlyGuiConfig"]()
 
 
-local HeartbeatTable = {}
-local RenderStepTable = {}
-local SteppedTable = {}
-local function isAlive(plr)
-    local plr = plr or lplr
-    if plr and plr.Character and ((plr.Character:FindFirstChild("Humanoid")) and (plr.Character:FindFirstChild("Humanoid") and plr.Character:FindFirstChild("Humanoid").Health > 0) and (plr.Character:FindFirstChild("HumanoidRootPart"))) then
-        return true
-    end
-end
 
-local function BindToHeartbeat(name, func)
-    if HeartbeatTable[name] == nil then
-        HeartbeatTable[name] = game:GetService("RunService").Heartbeat:connect(func)
-    end
-end
-local function UnbindFromHeartbeat(name)
-    if HeartbeatTable[name] then
-        HeartbeatTable[name]:Disconnect()
-        HeartbeatTable[name] = nil
-    end
-end
-local function BindToRenderStep(name, func)
-	if RenderStepTable[name] == nil then
-		RenderStepTable[name] = game:GetService("RunService").RenderStepped:connect(func)
-	end
-end
-local function UnbindFromRenderStep(name)
-	if RenderStepTable[name] then
-		RenderStepTable[name]:Disconnect()
-		RenderStepTable[name] = nil
-	end
-end
-local function BindToStepped(name, func)
-	if SteppedTable[name] == nil then
-		SteppedTable[name] = game:GetService("RunService").Stepped:connect(func)
-	end
-end
-local function UnbindFromStepped(name)
-	if SteppedTable[name] then
-		SteppedTable[name]:Disconnect()
-		SteppedTable[name] = nil
-	end
-end
-
-local function skipFrame() 
-    return game:GetService("RunService").Heartbeat:Wait()
-end
 
 local function ferror(...)
     local args ={...}
@@ -927,5 +881,6 @@ spawn(function()
 end)
 fprint("Finished loading in "..tostring(math.floor((game:GetService("Workspace"):GetServerTimeNow() - startTime) * 1000) / 1000).."s\nPress "..GuiLibrary["GuiKeybind"].." to open the Gui.\nPlease join the discord for changelogs and to report bugs. \ndiscord.gg/bdjT5UmmDJ\nEnjoy using Future v"..shared._FUTUREVERSION.."")
 shared._FUTURECACHED = true
+
 
 
