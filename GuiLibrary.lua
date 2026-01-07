@@ -137,7 +137,7 @@ local function requesturl(url, bypass)
         Url = repourl..url,
         Method = "GET"
     })
-    if req.StatusCode == 404 then error("404 Not Found") end
+    if req.StatusCode == 404 then error("SMD") end
     return req.Body
 end 
 
@@ -2066,3 +2066,4 @@ end)
 
 
 return GuiLibrary
+
