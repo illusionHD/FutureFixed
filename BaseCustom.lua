@@ -18,7 +18,7 @@ local function requesturl(url, bypass)
     if isfile(url) and shared.FutureDeveloper then 
         return readfile(url)
     end
-    local repourl = bypass and "https://raw.githubusercontent.com/joeengo/" or "https://raw.githubusercontent.com/illusionHD/futurefixed/main/"
+    local repourl = bypass and "https://raw.githubusercontent.com/illusionHD/" or "https://raw.githubusercontent.com/illusionHD/futurefixed/main/"
     local url = url:gsub("Future/", "")
     local req = requestfunc({
         Url = repourl..url,
