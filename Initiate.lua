@@ -3,7 +3,7 @@ print("[Future] Loading!")
 repeat task.wait() until game:IsLoaded()
 if shared.Future~=nil then print("[Future] Detected future already executed, not executing!") return end
 shared.futureStartTime = game:GetService("Workspace"):GetServerTimeNow()
-shared._FUTUREVERSION = "1.1.7a2 | "..((shared.FutureDeveloper and "release" or "dev")).." build" -- // This is a cool thing yes
+shared._FUTUREVERSION = "1.1.7a2 | "..((shared.futurefixedeloper and "release" or "dev")).." build" -- // This is a cool thing yes
 shared._FUTUREMOTD = "futureclient.xyz 🔥"
 local startTime = shared.futureStartTime
 shared.Future = {}
@@ -35,7 +35,7 @@ local function GetURL(scripturl)
 		end
 		return readfile("Future./"..scripturl)
 	else
-		local res = game:HttpGet("https://raw.githubusercontent.com/NTDCore/FutureDev/main/"..scripturl, true)
+		local res = game:HttpGet("https://raw.githubusercontent.com/illusionHD/futurefixed/main/"..scripturl, true)
 		assert(res ~= "404: Not Found", "File not found")
 		return res
 	end
@@ -45,7 +45,7 @@ local function requesturl(url, bypass)
     if betterisfile(url) and shared.FutureDeveloper then 
         return readfile(url)
     end
-    local repourl = bypass and "https://raw.githubusercontent.com/NTDCore/" or "https://raw.githubusercontent.com/NTDCore/FutureDev/main/"
+    local repourl = bypass and "https://raw.githubusercontent.com/illusionHD/" or "https://raw.githubusercontent.com/illusionHD/futurefixed/main/"
     local url = url:gsub("Future/", "")
     local req = requestfunc({
         Url = repourl..url,
@@ -218,7 +218,7 @@ end
 local function getasset(path)
 	if not betterisfile(path) then
 		local req = requestfunc({
-			Url = "https://raw.githubusercontent.com/NTDCore/FutureDev/main/"..path:gsub("Future/assets", "assets"),
+			Url = "https://raw.githubusercontent.com/illusionHD/futurefixed/main/"..path:gsub("Future/assets", "assets"),
 			Method = "GET"
 		})
         print("[Future] downloading "..path.." asset.")
@@ -615,7 +615,7 @@ local restartButton; restartButton = OtherWindow.CreateOptionsButton({
                 if shared.FutureDeveloper then 
                     loadfile("Future/Initiate.lua")()
                 else
-                    loadstring(game:HttpGet('https://raw.githubusercontent.com/NTDCore/FutureDev/main/loadstring.lua', true))()
+                    loadstring(game:HttpGet('https://raw.githubusercontent.com/illusionHD/futurefixed/main/loadstring.lua', true))()
                 end
             end)
         end
@@ -767,7 +767,7 @@ local ontp = game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(
         if shared.FutureDeveloper then 
             loadfile("Future/Initiate.lua")() 
         else 
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/NTDCore/FutureDev/main/Initiate.lua", true))() 
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/illusionHD/futurefixed/main/Initiate.lua", true))() 
         end
         ]]
 		queueteleport(stringtp)
@@ -927,4 +927,5 @@ spawn(function()
 end)
 fprint("Finished loading in "..tostring(math.floor((game:GetService("Workspace"):GetServerTimeNow() - startTime) * 1000) / 1000).."s\nPress "..GuiLibrary["GuiKeybind"].." to open the Gui.\nPlease join the discord for changelogs and to report bugs. \ndiscord.gg/bdjT5UmmDJ\nEnjoy using Future v"..shared._FUTUREVERSION.."")
 shared._FUTURECACHED = true
+
 
