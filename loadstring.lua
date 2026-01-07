@@ -13,4 +13,4 @@ loadfile("Future/Initiate.lua")()
 return
 end
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/NTDCore/FutureDev/main/Initiate.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/illusionHD/FutureFixed/main/Initiate.lua"))()
